@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "acme-harvest-api"
+version = "0.1.0"
+description = "Fictional postharvest API used to test Grafter end to end."
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/acme_harvest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+source = ["acme_harvest"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true

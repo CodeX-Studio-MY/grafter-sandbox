@@ -1,0 +1,18 @@
+# Fictional example. Not a real product. Used to test Grafter end to end (TODO 0D5).
+solution: AcmeHarvest
+purpose: Postharvest management for fresh-produce growers, packers and traders
+core_domains: [harvest intake, grading, packing, traceability, invoicing]
+users: [farm managers, packhouse staff, sales]
+non_goals:
+  - accounting / general ledger (export only)
+  - unrelated domains (HR, library, LMS)
+invariants:
+  - traceability chain must never break
+  - invoice numbers are immutable once issued
+protected_paths: []
+review_paths: []
+repos:
+  api:
+    protected_paths: [src/acme_harvest/invoices.py]   # exercises protection in phase 1
+allowed_change_types: [bugfix, security, performance, test, refactor, docs, dependency]
+feature_changes: propose_only
